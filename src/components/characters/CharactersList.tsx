@@ -5,12 +5,16 @@ const CharactersList = (props: { data: Array<any> }) => {
   console.log(props.data);
   return (
     <div className={classes.grid}>
-      {props.data.map((char) => (
-        <div key={char._id} className={classes.character}>
+      {props.data.map((character) => (
+        <div key={character._id} className={classes.character}>
           <div className={classes['img-holder']}>
-            <img src={char.imageUrl} alt="no-img" className={classes.img} />
+            <img
+              src={character.imageUrl}
+              alt="no-img"
+              className={classes.img}
+            />
           </div>
-          <p>{char.name}</p>
+          <p className={classes['name']}>{character.name}</p>
         </div>
       ))}
     </div>

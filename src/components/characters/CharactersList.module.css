@@ -1,12 +1,14 @@
 .grid {
   margin: 5rem;
-  padding: 2rem;
+  padding: 3rem 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   background-color: #26306e;
   box-shadow: 0 2rem 10rem rgba(0, 0, 0, 0.52);
   border-radius: 2rem;
+  height: 90vh;
+  overflow-y: scroll;
   gap: 1rem;
 }
 
@@ -14,9 +16,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  flex-basis: 20%;
+  flex-basis: 10%;
   background-color: rgb(255, 255, 255);
+  box-shadow: 0 2rem 10rem rgba(0, 0, 0, 0.52);
   border-radius: 1rem;
+  padding: 1rem;
+  gap: 1rem;
 }
 
 .img-holder {
@@ -28,4 +33,10 @@
   height: 100%;
   width: 100%;
   object-fit: contain;
+}
+
+.name {
+  text-align: center;
+  color: black;
+  font-size: 2rem;
 }
