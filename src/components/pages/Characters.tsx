@@ -15,7 +15,7 @@ const Characters = (): JSX.Element => {
   const page = searchParams.get('page');
 
   // Fetching characters from the server
-  const fetchData = (apiUrl = 'https://api.disneyapi.dev/characters') => {
+  const fetchCharacters = (apiUrl = 'https://api.disneyapi.dev/characters') => {
     // If query params exists add it to the request url
     if (page) {
       apiUrl += `?page=${page}`;
@@ -36,7 +36,7 @@ const Characters = (): JSX.Element => {
 
   // get characters
   useEffect(() => {
-    fetchData();
+    fetchCharacters();
   }, [page]);
 
   const changePage = (pageURL: string) => {
