@@ -48,6 +48,7 @@ const Characters = (): JSX.Element => {
 
   return (
     <div>
+      <h1 style={{ textAlign: 'center', fontSize: '4rem' }}>Disney Cards</h1>
       <CharactersList data={charactersData} />
       {pagination && <Actions paginationData={pagination} fn={changePage} />}
     </div>
