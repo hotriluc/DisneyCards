@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 
 import NotFoundPage from '../components/pages/404';
 import Characters from '../components/pages/Characters';
@@ -7,7 +7,8 @@ import Characters from '../components/pages/Characters';
 const AppRoutes = () => {
   return (
     <Routes>
-      <Route path="/" element={<Characters />} />
+      <Route path="/" element={<Navigate to={'/characters'} />} />
+      <Route path="/characters" element={<Characters />} />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );
