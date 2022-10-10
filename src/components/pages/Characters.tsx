@@ -2,15 +2,10 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { ICharacter } from '../../interfaces/Character.interface';
+import { IPagination } from '../../interfaces/Pagination.interface';
 import CharactersList from '../characters/CharactersList';
+import Actions from '../ui/Actions';
 // import CharactersList from '../characters/CharactersList';
-
-export interface IPagination {
-  count: number;
-  totalPages: number;
-  previousPage: string;
-  nextPage: string;
-}
 
 const Characters = (): JSX.Element => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -29,7 +24,13 @@ const Characters = (): JSX.Element => {
     axios.get(apiUrl).then((res) => {
       const { data, count, totalPages, previousPage, nextPage } = res.data;
       setCharactersData(data);
-      setPagination({ count, totalPages, previousPage, nextPage });
+      setPagination({
+        count,
+        totalPages,
+        previousPage,
+        nextPage,
+        currentPage: page || '1',
+      });
     });
   };
 
@@ -45,23 +46,10 @@ const Characters = (): JSX.Element => {
     setSearchParams(`page=${pageToChange}`);
   };
 
-  const paginationJSX = (
-    <div>
-      {pagination?.previousPage ? (
-        <button onClick={() => changePage(pagination.previousPage)}>
-          {' '}
-          prev
-        </button>
-      ) : null}
-      {pagination?.nextPage ? (
-        <button onClick={() => changePage(pagination.nextPage)}> next</button>
-      ) : null}
-    </div>
-  );
   return (
     <div>
       <CharactersList data={charactersData} />
-      {paginationJSX}
+      {pagination && <Actions paginationData={pagination} fn={changePage} />}
     </div>
   );
 };

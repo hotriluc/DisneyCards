@@ -1,15 +1,15 @@
 .grid {
-  margin: 5rem;
+  margin: 3rem 5rem 0;
   padding: 3rem 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  background-color: #26306e;
+  /* background-color: #26306e;
   box-shadow: 0 2rem 10rem rgba(0, 0, 0, 0.52);
-  border-radius: 2rem;
-  height: 90vh;
-  overflow-y: scroll;
-  gap: 1rem;
+  border-radius: 2rem; */
+  /* height: 85vh; */
+  /* overflow-y: scroll; */
+  gap: 2rem;
 }
 
 .character {
@@ -22,11 +22,12 @@
   border-radius: 1rem;
   padding: 1rem;
   gap: 1rem;
+  font-weight: bold;
 }
 
 .img-holder {
-  width: 200px;
-  height: 200px;
+  width: 125px;
+  height: 125px;
 }
 
 .img {
@@ -38,5 +39,5 @@
 .name {
   text-align: center;
   color: black;
-  font-size: 2rem;
+  font-size: 1.2rem;
 }
