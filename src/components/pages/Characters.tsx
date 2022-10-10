@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { ICharacter } from '../../interfaces/Character.interface';
 import CharactersList from '../characters/CharactersList';
 // import CharactersList from '../characters/CharactersList';
 
@@ -11,7 +12,7 @@ export interface IPagination {
 }
 
 const Characters = (): JSX.Element => {
-  const [charactersData, setCharactersData] = useState<Array<any>>([]);
+  const [charactersData, setCharactersData] = useState<Array<ICharacter>>([]);
   const [pagination, setPagination] = useState<IPagination>();
 
   const fetchData = (apiUrl = 'https://api.disneyapi.dev/characters') => {

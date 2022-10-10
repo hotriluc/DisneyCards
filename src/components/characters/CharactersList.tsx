@@ -1,7 +1,8 @@
 import React from 'react';
+import { ICharacter } from '../../interfaces/Character.interface';
 import classes from './CharactersList.module.css';
 
-const CharactersList = (props: { data: Array<any> }) => {
+const CharactersList = (props: { data: Array<ICharacter> }) => {
   console.log(props.data);
   return (
     <div className={classes.grid}>
