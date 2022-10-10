@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { ICharacter } from '../../interfaces/Character.interface';
 import CharactersList from '../characters/CharactersList';
 // import CharactersList from '../characters/CharactersList';
@@ -12,10 +13,19 @@ export interface IPagination {
 }
 
 const Characters = (): JSX.Element => {
+  const [searchParams, setSearchParams] = useSearchParams();
   const [charactersData, setCharactersData] = useState<Array<ICharacter>>([]);
   const [pagination, setPagination] = useState<IPagination>();
 
+  const page = searchParams.get('page');
+
+  // Fetching characters from the server
   const fetchData = (apiUrl = 'https://api.disneyapi.dev/characters') => {
+    // If query params exists add it to the request url
+    if (page) {
+      apiUrl += `?page=${page}`;
+    }
+
     axios.get(apiUrl).then((res) => {
       const { data, count, totalPages, previousPage, nextPage } = res.data;
       setCharactersData(data);
@@ -26,10 +36,13 @@ const Characters = (): JSX.Element => {
   // get characters
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [page]);
 
-  const changePage = (page: string) => {
-    fetchData(page);
+  const changePage = (pageURL: string) => {
+    const pageParams = new URL(pageURL).searchParams;
+    const pageToChange = pageParams.get('page');
+
+    setSearchParams(`page=${pageToChange}`);
   };
 
   const paginationJSX = (
