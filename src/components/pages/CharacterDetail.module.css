@@ -1,6 +1,5 @@
 .character {
   display: flex;
-  flex-wrap: wrap;
   background-color: white;
   max-width: 600px;
   margin: 20rem auto;
@@ -21,6 +20,7 @@
 .img-holder {
   height: 250px;
   width: 250px;
+  margin: auto 0;
 }
 
 .img {

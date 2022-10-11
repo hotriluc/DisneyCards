@@ -10,7 +10,7 @@ const CharactersList = (props: { data: Array<ICharacter> }) => {
   const transitions = useTransition(props.data, {
     from: { y: -50, opacity: 0, 'pointer-events': 'none' },
     enter: { y: 0, opacity: 1, 'pointer-events': 'auto' },
-    trail: 200,
+    trail: 100,
   });
 
   return (
